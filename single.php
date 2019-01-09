@@ -11,6 +11,12 @@
 <!-- Retrieve of the single article categories !-->
 <?php $category = get_the_category() ?>
 
+
+<?php if (have_posts()) :
+while (have_posts()) :
+the_post() ?>
+
+
 <section class="uk-margin-large-bottom">
     <div class="uk-container">
         <div class="uk-grid uk-margin-medium-top">
@@ -48,6 +54,7 @@
                            !--->
                         <p> <?php echo get_the_content() ?></p>
 
+
                     </div>
                 </article>
             </div>
@@ -64,6 +71,9 @@
             </div>
         </div>
 </section>
-
+<?php
+endwhile;
+endif;
+?>
 <?php get_footer(); ?>
 
